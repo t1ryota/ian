@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confess to Your Crush</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffdde1;
+            padding: 50px;
+        }
+        #container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        button {
+            background-color: #ff4081;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #d81b60;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <h2>Confess to Your Crush ❤️</h2>
+        <p>Enter your crush's name:</p>
+        <input type="text" id="crushName" placeholder="Crush's name">
+        <br><br>
+        <button onclick="confess()">Confess</button>
+        <h3 id="message"></h3>
+    </div>
+
+    <script>
+        function confess() {
+            let name = document.getElementById("crushName").value;
+            if (name.trim() === "") {
+                alert("Please enter a name!");
+                return;
+            }
+
+            let responses = [
+                `Yes! I've been waiting for this, ${name}! ❤️😊`,
+                `Sorry, ${name}, I just see you as a friend. 😔`,
+                `Maybe... Let me think about it! 🤔`
+            ];
+
+            let response = responses[Math.floor(Math.random() * responses.length)];
+
+            document.getElementById("message").innerHTML = `Dear ${name},<br>I really like you! Would you go out with me? ❤️<br><br>Your crush responds: <b>${response}</b>`;
+        }
+    </script>
+
+</body>
+</html>
